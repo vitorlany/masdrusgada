@@ -9,15 +9,17 @@ import java.util.List;
 
 @Getter
 public class StatusTotalFrete {
+    private static int CONTADOR = 1;
+
+    private long codRastreio;
     private String responsavel;
-    private int prazoEmDias;
     private double valor;
     private List<FaseDeEntrega> fases;
     private StatusFrete status;
 
-    public StatusTotalFrete(String responsavel, int prazoEmDias, double valor) {
+    public StatusTotalFrete(String responsavel, double valor) {
+        this.codRastreio = StatusTotalFrete.getProxId();
         this.responsavel = responsavel;
-        this.prazoEmDias = prazoEmDias;
         this.valor = valor;
         this.fases = new LinkedList<>();
         this.status = StatusFrete.COLETA;
@@ -33,13 +35,13 @@ public class StatusTotalFrete {
         this.status = status;
     }
 
-    public String getStatus() {
-        return status.toString();
-    }
-
     public List<FaseDeEntrega> getFases() {
         List<FaseDeEntrega> res = new ArrayList<>(fases);
         Collections.reverse(res);
         return res;
+    }
+
+    private static int getProxId() {
+        return StatusTotalFrete.CONTADOR++;
     }
 }

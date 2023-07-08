@@ -12,9 +12,9 @@ public class TestController {
 
     @GetMapping
     public StatusTotalFrete test() {
-        StatusTotalFrete frete = new StatusTotalFrete("Teste", 15, 1_500);
+        StatusTotalFrete frete = new StatusTotalFrete("Teste", 1_500.69);
         frete.adicionarFase("Nova");
-        frete.adicionarFase("Nova Segunda", StatusFrete.TRANSITO);
+        frete.adicionarFase("Segunda", StatusFrete.TRANSITO);
         return frete;
     }
 }
