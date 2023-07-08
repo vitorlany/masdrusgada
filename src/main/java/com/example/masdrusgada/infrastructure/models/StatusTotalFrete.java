@@ -1,7 +1,10 @@
 package com.example.masdrusgada.infrastructure.models;
 
+import lombok.Getter;
+
 import java.util.Stack;
 
+@Getter
 public class StatusTotalFrete {
     private String responsavel;
     private int prazoEmDias;
@@ -20,6 +23,11 @@ public class StatusTotalFrete {
     public void adicionarFase(String fase) {
         FaseDeEntrega novaFase = new FaseDeEntrega(fase);
         fases.push(novaFase);
+    }
+
+    public void adicionarFase(String fase, StatusFrete status) {
+        this.adicionarFase(fase);
+        this.status = status;
     }
 
     public String getStatus() {
