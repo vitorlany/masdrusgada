@@ -21,6 +21,6 @@ class FreteServiceTest {
     @Test
     void testGetFreteIdeal() {
         Fretavel frete = freteService.getFreteIdeal(5);
-        StatusTotalFrete enviar = frete.enviar(15);
+        StatusTotalFrete rastreio = freteService.enviarFrete(frete, 15);
     }
 }

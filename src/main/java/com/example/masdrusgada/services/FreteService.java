@@ -10,4 +10,8 @@ public class FreteService {
     public Fretavel getFreteIdeal(int dias) {
         return FreteFactory.getFrete(dias);
     }
+
+    public StatusTotalFrete enviarFrete(Fretavel frete, double peso) {
+        return frete.enviar(peso);
+    }
 }
